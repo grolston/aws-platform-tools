@@ -3,5 +3,5 @@
 Deployment example:
 
 ```sh
-curl -sSL https://raw.githubusercontent.com/grolston/control-tower-enroll-check/main/validate-for-control-tower.sh | sh
+curl -sSL https://raw.githubusercontent.com/grolston/aws-platform-tools/main/validate-for-control-tower.sh| sh
 ```
