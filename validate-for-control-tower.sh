@@ -5,8 +5,8 @@ regions=$(aws ec2 describe-regions --query 'Regions[*].RegionName' --output text
 # Loop through each region
 for region in $regions; do
   echo "Checking AWS Config in $region..."
-  config_status=$(aws configservice describe-configuration-recorders --region $region)
-  if [ -z "$config_status" ]; then
+  config_status=$(aws configservice describe-configuration-recorder-status --query 'ConfigurationRecordersStatus[0].recording' --output text --region $region)
+  if [ "$config_status" == "None" ]; then
     echo "SUCCESS: AWS Config is NOT enabled in $region."
   else 
     echo "WARNING: AWS Config is enabled in $region."
